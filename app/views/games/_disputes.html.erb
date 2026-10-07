@@ -1,0 +1,48 @@
+<% contestable = game.checks.where(achieved: true, decision: "rejected", contested: false).includes(:catalog_item, :duo, race: :cup).select { |check| check.duo.member?(current_player) } %>
+<% disputes = game.disputes.includes(:votes, check: [ :catalog_item, :race, { duo: [ :pilot, :judge ] } ]).order(:id) %>
+<% if contestable.any? || disputes.any? %>
+  <section id="disputes" class="space-y-3">
+    <h2 class="text-xl font-semibold"><%= t(".heading") %></h2>
+
+    <% contestable.each do |check| %>
+      <div class="contestable card">
+        <p><%= t(".rejected_task", name: check.catalog_item.name, race: check.race.position, cup: check.race.cup.position) %></p>
+        <%= button_to t(".contest"), contest_game_check_path(game, check), class: "btn btn-warn btn-block" %>
+      </div>
+    <% end %>
+
+    <% disputes.each do |dispute| %>
+      <% check = dispute.check %>
+      <% authority = dispute.authority?(current_player) %>
+      <div class="dispute card" data-status="<%= dispute.status %>">
+        <p class="font-medium"><%= t(".task", name: check.catalog_item.name, pilot: check.duo.pilot.nickname, race: check.race.position, cup: check.race.cup.position) %></p>
+        <p class="text-sm text-gray-600"><%= check.catalog_item.description %></p>
+
+        <% if dispute.status_open? %>
+          <p class="text-sm"><%= t(".status.open") %></p>
+        <% elsif dispute.status_voting? %>
+          <p class="text-sm"><%= t(".status.voting", count: dispute.votes.size, total: dispute.voters.count) %></p>
+        <% elsif dispute.status_tied? %>
+          <p class="text-sm"><%= t(".status.tied") %></p>
+        <% else %>
+          <p class="text-sm font-medium"><%= t(".status.resolved.#{dispute.outcome}") %></p>
+        <% end %>
+
+        <% if dispute.status_voting? && dispute.voters.exists?(current_player.id) && dispute.votes.none? { |vote| vote.player_id == current_player.id } %>
+          <%= button_to t(".vote_approve"), vote_game_dispute_path(game, dispute), params: { approve: true }, class: "btn btn-success btn-block" %>
+          <%= button_to t(".vote_reject"), vote_game_dispute_path(game, dispute), params: { approve: false }, class: "btn btn-neutral btn-block" %>
+        <% end %>
+
+        <% if authority && (dispute.status_open? || dispute.status_tied?) %>
+          <%= button_to t(".decide_approve"), decide_game_dispute_path(game, dispute), params: { approve: true }, class: "btn btn-success btn-block" %>
+          <%= button_to t(".decide_reject"), decide_game_dispute_path(game, dispute), params: { approve: false }, class: "btn btn-neutral btn-block" %>
+          <% if dispute.status_open? %>
+            <%= button_to t(".start_vote"), start_vote_game_dispute_path(game, dispute), class: "btn btn-info btn-block" %>
+          <% end %>
+        <% elsif authority && dispute.status_voting? %>
+          <%= button_to t(".close_vote"), close_vote_game_dispute_path(game, dispute), class: "btn btn-info btn-block" %>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+<% end %>

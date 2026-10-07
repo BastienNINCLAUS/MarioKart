@@ -1,0 +1,668 @@
+---
+players: 9
+cups_count: 9
+rotate_game_master: true
+status: finished
+cups:
+- position: 1
+  game_master: Hôte
+  duos:
+  - Relève / Joueur 5 / Wario / le_roi_de_la_banane / le_grand_final
+  - Joueur 9 / Joueur 8 / Rosalina / le_funambule / salut_de_l_empereur
+  - Joueur 6 / Joueur 4 / Bébé Peach / le_collectionneur / derapage_royal
+  - Joueur 7 / Joueur 3 / Bowser / le_pacifiste / triple_turbo
+  races:
+  - position: 1
+    complication: les_amoureux
+    targets:
+    - Joueur 9
+    - Joueur 7
+    results:
+    - 1. Joueur 2 8 pts
+    - 2. Joueur 6 9 pts
+    - 3. Joueur 9 4 pts
+    - 4. Joueur 7 5 pts
+    tasks:
+    - Joueur 6 fil_rouge le_collectionneur validated
+    - Joueur 7 fil_rouge le_pacifiste validated
+  - position: 2
+    complication: podium_inverse
+    targets: []
+    results:
+    - 1. Joueur 9 2 pts
+    - 2. Relève 9 pts
+    - 3. Joueur 7 6 pts
+    - 4. Joueur 6 11 pts
+    tasks:
+    - Relève fil_rouge le_roi_de_la_banane validated
+    - Relève special_action le_grand_final validated
+    - Joueur 6 fil_rouge le_collectionneur validated
+  - position: 3
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Joueur 9 3 pts (annulé)
+    - 2. Relève 5 pts (annulé)
+    - 3. Joueur 7 14 pts
+    - 4. Joueur 6 10 pts
+    tasks:
+    - Relève fil_rouge le_roi_de_la_banane rejected contesté
+    - Relève secret_task sans_temoin validated
+    - Joueur 9 fil_rouge le_funambule validated
+    - Joueur 9 secret_task le_justicier rejected
+    - Joueur 6 fil_rouge le_collectionneur validated
+    - Joueur 6 secret_task le_faux_ami validated contesté
+    - Joueur 7 fil_rouge le_pacifiste validated
+    - Joueur 7 special_action triple_turbo validated
+    - Joueur 7 secret_task saboteur_de_l_ombre validated
+  - position: 4
+    complication: les_rivaux
+    targets:
+    - Joueur 9
+    - Relève
+    results:
+    - 1. Joueur 6 8 pts
+    - 2. Joueur 9 18 pts
+    - 3. Relève 7 pts
+    - 4. Joueur 7 2 pts
+    tasks:
+    - Relève fil_rouge le_roi_de_la_banane validated
+    - Joueur 9 fil_rouge le_funambule validated contesté
+    - Joueur 9 secret_task le_justicier validated
+    - Joueur 6 fil_rouge le_collectionneur rejected contesté
+    - Joueur 7 fil_rouge le_pacifiste rejected contesté
+- position: 2
+  game_master: Relève
+  duos:
+  - Joueur 3 / Joueur 7 / Iggy / le_revenant / le_grand_final
+  - Joueur 5 / Joueur 6 / Lakitu / le_collectionneur / planeur_parfait
+  - Joueur 4 / Joueur 9 / Yoshi / le_pacifiste / derapage_royal
+  - Joueur 8 / Hôte / Mario tanuki / le_roi_de_la_banane / triple_turbo
+  races:
+  - position: 1
+    complication: les_rivaux
+    targets:
+    - Joueur 4
+    - Joueur 5
+    results:
+    - 1. Joueur 4 12 pts
+    - 2. Joueur 3 6 pts
+    - 3. Joueur 8 4 pts
+    - 4. Joueur 5 2 pts
+    tasks:
+    - Joueur 5 secret_task saboteur_de_l_ombre rejected contesté
+    - Joueur 4 special_action derapage_royal validated contesté
+    - Joueur 8 fil_rouge le_roi_de_la_banane rejected contesté
+  - position: 2
+    complication: podium_inverse
+    targets: []
+    results:
+    - 1. Joueur 3 2 pts
+    - 2. Joueur 5 9 pts
+    - 3. Joueur 8 9 pts
+    - 4. Joueur 4 11 pts
+    tasks:
+    - Joueur 5 fil_rouge le_collectionneur validated
+    - Joueur 5 special_action planeur_parfait validated
+    - Joueur 4 fil_rouge le_pacifiste validated contesté
+    - Joueur 8 fil_rouge le_roi_de_la_banane validated
+  - position: 3
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Joueur 5 16 pts
+    - 2. Joueur 3 11 pts
+    - 3. Joueur 8 10 pts (annulé)
+    - 4. Joueur 4 7 pts
+    tasks:
+    - Joueur 3 secret_task le_justicier validated
+    - Joueur 5 fil_rouge le_collectionneur validated
+    - Joueur 5 secret_task sans_temoin validated
+    - Joueur 4 secret_task le_faux_ami validated
+    - Joueur 8 fil_rouge le_roi_de_la_banane validated
+    - Joueur 8 special_action triple_turbo validated
+    - Joueur 8 secret_task saboteur_de_l_ombre validated
+  - position: 4
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Joueur 4 11 pts
+    - 2. Joueur 5 6 pts
+    - 3. Joueur 3 4 pts
+    - 4. Joueur 8 7 pts
+    tasks:
+    - Joueur 4 fil_rouge le_pacifiste validated
+    - Joueur 8 fil_rouge le_roi_de_la_banane validated
+- position: 3
+  game_master: Joueur 3
+  duos:
+  - Hôte / Joueur 6 / Bébé Peach / le_revenant / le_grand_final
+  - Joueur 4 / Joueur 5 / Bowser / le_pacifiste / salut_de_l_empereur
+  - Joueur 7 / Joueur 9 / Toad / le_funambule / planeur_parfait
+  - Joueur 8 / Relève / Yoshi / le_roi_de_la_banane / triple_turbo
+  races:
+  - position: 1
+    complication: les_amoureux
+    targets:
+    - Hôte
+    - Joueur 7
+    results:
+    - 1. Hôte 16 pts
+    - 2. Joueur 7 9 pts
+    - 3. Joueur 8 4 pts
+    - 4. Joueur 4 9 pts
+    tasks:
+    - Hôte fil_rouge le_revenant validated
+    - Hôte secret_task sans_temoin validated contesté
+    - Joueur 4 fil_rouge le_pacifiste rejected contesté
+    - Joueur 4 special_action salut_de_l_empereur validated
+    - Joueur 4 secret_task le_cadeau_empoisonne validated
+    - Joueur 7 fil_rouge le_funambule validated
+  - position: 2
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Hôte 11 pts
+    - 2. Joueur 4 11 pts
+    - 3. Joueur 7 6 pts
+    - 4. Joueur 8 0 pts (annulé)
+    tasks:
+    - Hôte fil_rouge le_revenant validated
+    - Joueur 4 fil_rouge le_pacifiste rejected contesté
+    - Joueur 4 secret_task le_justicier validated
+    - Joueur 7 special_action planeur_parfait validated
+  - position: 3
+    complication: podium_inverse
+    targets: []
+    results:
+    - 1. Joueur 8 7 pts
+    - 2. Joueur 7 4 pts
+    - 3. Joueur 4 6 pts
+    - 4. Hôte 8 pts
+    tasks:
+    - Joueur 4 fil_rouge le_pacifiste rejected contesté
+    - Joueur 7 secret_task saboteur_de_l_ombre rejected contesté
+    - Joueur 8 secret_task sans_temoin validated
+  - position: 4
+    complication: les_rivaux
+    targets:
+    - Joueur 4
+    - Joueur 8
+    results:
+    - 1. Joueur 8 15 pts
+    - 2. Joueur 7 6 pts
+    - 3. Hôte 6 pts
+    - 4. Joueur 4 5 pts
+    tasks:
+    - Hôte special_action le_grand_final validated
+    - Joueur 4 fil_rouge le_pacifiste validated
+    - Joueur 4 special_action salut_de_l_empereur rejected
+    - Joueur 4 secret_task le_cadeau_empoisonne rejected
+    - Joueur 8 special_action triple_turbo rejected contesté
+    - Joueur 8 secret_task le_faux_ami validated
+- position: 4
+  game_master: Joueur 4
+  duos:
+  - Joueur 3 / Joueur 6 / Iggy / le_collectionneur / salut_de_l_empereur
+  - Joueur 5 / Hôte / Bébé Peach / le_revenant / derapage_royal
+  - Relève / Joueur 8 / Wendy / le_funambule / triple_turbo
+  - Joueur 9 / Joueur 7 / Inkling garçon / le_roi_de_la_banane / le_grand_final
+  races:
+  - position: 1
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Relève 11 pts
+    - 2. Joueur 3 9 pts
+    - 3. Joueur 9 4 pts
+    - 4. Joueur 5 7 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur validated
+    - Joueur 5 fil_rouge le_revenant validated
+    - Relève fil_rouge le_funambule validated contesté
+    - Joueur 9 special_action le_grand_final rejected
+    - Joueur 9 secret_task sans_temoin rejected contesté
+  - position: 2
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Relève 8 pts
+    - 2. Joueur 9 6 pts
+    - 3. Joueur 3 4 pts
+    - 4. Joueur 5 8 pts (annulé)
+    tasks:
+    - Joueur 5 fil_rouge le_revenant validated
+    - Joueur 5 secret_task le_cadeau_empoisonne validated
+  - position: 3
+    complication: les_rivaux
+    targets:
+    - Joueur 3
+    - Joueur 9
+    results:
+    - 1. Relève 16 pts
+    - 2. Joueur 5 9 pts
+    - 3. Joueur 3 9 pts
+    - 4. Joueur 9 5 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur validated
+    - Joueur 5 fil_rouge le_revenant validated
+    - Relève fil_rouge le_funambule validated
+    - Relève secret_task le_justicier validated
+    - Joueur 9 fil_rouge le_roi_de_la_banane validated
+  - position: 4
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Joueur 3 10 pts (annulé)
+    - 2. Relève 3 pts (annulé)
+    - 3. Joueur 5 3 pts (annulé)
+    - 4. Joueur 9 2 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur validated
+    - Joueur 3 special_action salut_de_l_empereur validated
+    - Joueur 3 secret_task le_justicier validated contesté
+    - Joueur 5 fil_rouge le_revenant validated contesté
+    - Relève fil_rouge le_funambule validated
+- position: 5
+  game_master: Joueur 5
+  duos:
+  - Hôte / Joueur 3 / Toadette / le_roi_de_la_banane / planeur_parfait
+  - Joueur 6 / Joueur 9 / Bébé Luigi / le_funambule / le_grand_final
+  - Joueur 7 / Relève / Larry / le_revenant / triple_turbo
+  - Joueur 8 / Joueur 4 / Wendy / le_pacifiste / salut_de_l_empereur
+  races:
+  - position: 1
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Joueur 7 8 pts
+    - 2. Joueur 6 9 pts
+    - 3. Joueur 8 4 pts
+    - 4. Hôte 11 pts
+    tasks:
+    - Hôte fil_rouge le_roi_de_la_banane rejected
+    - Hôte special_action planeur_parfait validated
+    - Hôte secret_task le_cadeau_empoisonne validated
+    - Joueur 6 fil_rouge le_funambule validated
+    - Joueur 7 secret_task le_justicier rejected
+    - Joueur 8 special_action salut_de_l_empereur rejected contesté
+  - position: 2
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Joueur 6 16 pts
+    - 2. Joueur 7 6 pts
+    - 3. Hôte 0 pts (annulé)
+    - 4. Joueur 8 9 pts
+    tasks:
+    - Joueur 6 fil_rouge le_funambule validated
+    - Joueur 6 secret_task le_faux_ami validated
+    - Joueur 8 special_action salut_de_l_empereur validated
+    - Joueur 8 secret_task saboteur_de_l_ombre validated
+  - position: 3
+    complication: les_rivaux
+    targets:
+    - Joueur 6
+    - Joueur 8
+    results:
+    - 1. Joueur 8 17 pts
+    - 2. Joueur 6 13 pts
+    - 3. Joueur 7 4 pts
+    - 4. Hôte 10 pts
+    tasks:
+    - Hôte fil_rouge le_roi_de_la_banane validated
+    - Hôte secret_task le_justicier validated
+    - Joueur 6 special_action le_grand_final validated
+    - Joueur 6 secret_task le_faux_ami validated
+    - Joueur 8 fil_rouge le_pacifiste validated
+  - position: 4
+    complication: les_amoureux
+    targets:
+    - Joueur 7
+    - Joueur 6
+    results:
+    - 1. Joueur 8 8 pts
+    - 2. Hôte 9 pts
+    - 3. Joueur 6 4 pts
+    - 4. Joueur 7 7 pts
+    tasks:
+    - Hôte fil_rouge le_roi_de_la_banane validated
+    - Joueur 7 special_action triple_turbo rejected contesté
+    - Joueur 7 secret_task le_justicier validated
+    - Joueur 8 special_action salut_de_l_empereur rejected contesté
+    - Joueur 8 secret_task le_faux_ami rejected
+- position: 6
+  game_master: Joueur 6
+  duos:
+  - Joueur 3 / Hôte / Yoshi / le_collectionneur / le_grand_final
+  - Joueur 4 / Joueur 7 / Métal Mario / le_roi_de_la_banane / derapage_royal
+  - Joueur 5 / Relève / Villageois / le_pacifiste / planeur_parfait
+  - Joueur 9 / Joueur 8 / Skelerex Bowser / le_revenant / triple_turbo
+  races:
+  - position: 1
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Joueur 5 11 pts
+    - 2. Joueur 3 6 pts
+    - 3. Joueur 4 4 pts
+    - 4. Joueur 9 5 pts
+    tasks:
+    - Joueur 4 secret_task le_justicier rejected contesté
+    - Joueur 5 fil_rouge le_pacifiste validated
+    - Joueur 9 fil_rouge le_revenant validated
+  - position: 2
+    complication: les_rivaux
+    targets:
+    - Joueur 5
+    - Joueur 3
+    results:
+    - 1. Joueur 9 11 pts
+    - 2. Joueur 4 14 pts
+    - 3. Joueur 5 9 pts
+    - 4. Joueur 3 10 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur validated
+    - Joueur 3 secret_task le_cadeau_empoisonne validated
+    - Joueur 4 fil_rouge le_roi_de_la_banane validated
+    - Joueur 4 secret_task sans_temoin validated
+    - Joueur 5 fil_rouge le_pacifiste validated
+    - Joueur 9 fil_rouge le_revenant validated
+  - position: 3
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Joueur 3 13 pts
+    - 2. Joueur 9 0 pts (annulé)
+    - 3. Joueur 5 14 pts
+    - 4. Joueur 4 3 pts (annulé)
+    tasks:
+    - Joueur 3 secret_task sans_temoin validated
+    - Joueur 4 fil_rouge le_roi_de_la_banane validated
+    - Joueur 4 special_action derapage_royal rejected contesté
+    - Joueur 5 fil_rouge le_pacifiste validated contesté
+    - Joueur 5 special_action planeur_parfait validated
+    - Joueur 5 secret_task saboteur_de_l_ombre validated contesté
+  - position: 4
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Joueur 9 16 pts
+    - 2. Joueur 5 11 pts
+    - 3. Joueur 4 4 pts
+    - 4. Joueur 3 7 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur validated
+    - Joueur 5 fil_rouge le_pacifiste validated
+    - Joueur 5 special_action planeur_parfait validated
+    - Joueur 9 fil_rouge le_revenant validated
+    - Joueur 9 secret_task le_faux_ami validated
+- position: 7
+  game_master: Joueur 7
+  duos:
+  - Hôte / Joueur 9 / Roy / le_revenant / le_grand_final
+  - Relève / Joueur 4 / Marie / le_roi_de_la_banane / planeur_parfait
+  - Joueur 6 / Joueur 3 / Villageois / le_pacifiste / salut_de_l_empereur
+  - Joueur 8 / Joueur 5 / Peach chat / le_collectionneur / derapage_royal
+  races:
+  - position: 1
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Joueur 8 8 pts
+    - 2. Relève 3 pts (annulé)
+    - 3. Hôte 4 pts
+    - 4. Joueur 6 5 pts (annulé)
+    tasks:
+    - Relève fil_rouge le_roi_de_la_banane validated
+    - Joueur 6 fil_rouge le_pacifiste validated
+    - Joueur 6 special_action salut_de_l_empereur validated
+  - position: 2
+    complication: les_amoureux
+    targets:
+    - Relève
+    - Joueur 8
+    results:
+    - 1. Joueur 8 3 pts
+    - 2. Joueur 6 14 pts
+    - 3. Hôte 9 pts
+    - 4. Relève 3 pts
+    tasks:
+    - Hôte fil_rouge le_revenant rejected
+    - Hôte secret_task le_cadeau_empoisonne validated
+    - Relève fil_rouge le_roi_de_la_banane validated
+    - Joueur 6 fil_rouge le_pacifiste validated
+    - Joueur 6 secret_task le_justicier validated
+    - Joueur 8 fil_rouge le_collectionneur validated
+  - position: 3
+    complication: podium_inverse
+    targets: []
+    results:
+    - 1. Joueur 6 12 pts
+    - 2. Relève 6 pts
+    - 3. Joueur 8 11 pts
+    - 4. Hôte 11 pts
+    tasks:
+    - Hôte fil_rouge le_revenant validated
+    - Hôte secret_task le_cadeau_empoisonne rejected
+    - Relève special_action planeur_parfait validated
+    - Joueur 6 fil_rouge le_pacifiste validated
+    - Joueur 6 special_action salut_de_l_empereur validated
+    - Joueur 6 secret_task le_justicier validated
+    - Joueur 8 fil_rouge le_collectionneur validated contesté
+    - Joueur 8 special_action derapage_royal validated
+    - Joueur 8 secret_task sans_temoin rejected contesté
+  - position: 4
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Relève 13 pts
+    - 2. Hôte 16 pts
+    - 3. Joueur 6 7 pts
+    - 4. Joueur 8 5 pts
+    tasks:
+    - Hôte fil_rouge le_revenant validated
+    - Hôte special_action le_grand_final validated contesté
+    - Hôte secret_task le_cadeau_empoisonne validated
+    - Relève fil_rouge le_roi_de_la_banane validated
+    - Relève special_action planeur_parfait validated
+    - Relève secret_task le_faux_ami rejected contesté
+    - Joueur 6 fil_rouge le_pacifiste validated
+    - Joueur 6 secret_task le_justicier rejected contesté
+    - Joueur 8 fil_rouge le_collectionneur validated
+- position: 8
+  game_master: Joueur 8
+  duos:
+  - Joueur 3 / Relève / Skelerex Bowser / le_collectionneur / planeur_parfait
+  - Joueur 5 / Joueur 6 / Lakitu / le_funambule / le_grand_final
+  - Joueur 7 / Joueur 4 / Bébé Harmonie / le_pacifiste / derapage_royal
+  - Joueur 9 / Hôte / Donkey Kong / le_roi_de_la_banane / triple_turbo
+  races:
+  - position: 1
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Joueur 3 8 pts
+    - 2. Joueur 5 6 pts
+    - 3. Joueur 7 9 pts
+    - 4. Joueur 9 11 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur rejected contesté
+    - Joueur 7 secret_task saboteur_de_l_ombre validated
+    - Joueur 9 fil_rouge le_roi_de_la_banane rejected contesté
+    - Joueur 9 special_action triple_turbo validated
+    - Joueur 9 secret_task le_faux_ami validated
+  - position: 2
+    complication: les_amoureux
+    targets:
+    - Joueur 5
+    - Joueur 3
+    results:
+    - 1. Joueur 3 10 pts
+    - 2. Joueur 5 13 pts
+    - 3. Joueur 9 7 pts
+    - 4. Joueur 7 5 pts
+    tasks:
+    - Joueur 3 special_action planeur_parfait validated
+    - Joueur 3 secret_task le_justicier rejected contesté
+    - Joueur 5 special_action le_grand_final validated
+    - Joueur 5 secret_task saboteur_de_l_ombre validated
+    - Joueur 7 fil_rouge le_pacifiste validated
+    - Joueur 9 fil_rouge le_roi_de_la_banane validated
+  - position: 3
+    complication: podium_inverse
+    targets: []
+    results:
+    - 1. Joueur 7 5 pts
+    - 2. Joueur 3 12 pts
+    - 3. Joueur 9 13 pts
+    - 4. Joueur 5 8 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur validated
+    - Joueur 3 secret_task le_cadeau_empoisonne validated
+    - Joueur 5 fil_rouge le_funambule rejected
+    - Joueur 7 fil_rouge le_pacifiste validated
+    - Joueur 9 fil_rouge le_roi_de_la_banane rejected
+    - Joueur 9 special_action triple_turbo validated
+    - Joueur 9 secret_task sans_temoin validated
+  - position: 4
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Joueur 7 5 pts (annulé)
+    - 2. Joueur 5 10 pts (annulé)
+    - 3. Joueur 3 4 pts
+    - 4. Joueur 9 12 pts
+    tasks:
+    - Joueur 3 fil_rouge le_collectionneur rejected
+    - Joueur 5 fil_rouge le_funambule validated
+    - Joueur 5 special_action le_grand_final validated
+    - Joueur 5 secret_task le_cadeau_empoisonne validated
+    - Joueur 7 fil_rouge le_pacifiste validated
+    - Joueur 7 special_action derapage_royal validated
+    - Joueur 9 fil_rouge le_roi_de_la_banane validated
+    - Joueur 9 special_action triple_turbo validated
+    - Joueur 9 secret_task le_faux_ami validated
+- position: 9
+  game_master: Joueur 9
+  duos:
+  - Hôte / Joueur 8 / Skelerex / le_pacifiste / triple_turbo
+  - Joueur 5 / Relève / Yoshi / le_funambule / le_grand_final
+  - Joueur 4 / Joueur 3 / Morton / le_revenant / salut_de_l_empereur
+  - Joueur 6 / Joueur 7 / Wendy / le_collectionneur / planeur_parfait
+  races:
+  - position: 1
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Joueur 5 16 pts
+    - 2. Joueur 6 9 pts
+    - 3. Joueur 4 11 pts
+    - 4. Hôte 12 pts
+    tasks:
+    - Hôte fil_rouge le_pacifiste validated
+    - Hôte secret_task sans_temoin validated
+    - Joueur 5 fil_rouge le_funambule validated
+    - Joueur 5 secret_task le_faux_ami validated
+    - Joueur 4 special_action salut_de_l_empereur validated
+    - Joueur 4 secret_task le_justicier validated
+    - Joueur 6 fil_rouge le_collectionneur validated
+  - position: 2
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Hôte 0 pts (annulé)
+    - 2. Joueur 5 14 pts
+    - 3. Joueur 6 12 pts
+    - 4. Joueur 4 5 pts
+    tasks:
+    - Joueur 5 fil_rouge le_funambule validated
+    - Joueur 5 secret_task sans_temoin validated
+    - Joueur 4 fil_rouge le_revenant validated
+    - Joueur 4 secret_task le_cadeau_empoisonne rejected
+    - Joueur 6 fil_rouge le_collectionneur validated
+    - Joueur 6 secret_task le_justicier validated
+  - position: 3
+    complication: les_amoureux
+    targets:
+    - Joueur 5
+    - Hôte
+    results:
+    - 1. Joueur 4 8 pts
+    - 2. Hôte 0 pts
+    - 3. Joueur 6 9 pts
+    - 4. Joueur 5 8 pts
+    tasks:
+    - Joueur 5 fil_rouge le_funambule validated
+    - Joueur 5 secret_task sans_temoin validated contesté
+    - Joueur 4 fil_rouge le_revenant rejected
+    - Joueur 6 fil_rouge le_collectionneur rejected contesté
+    - Joueur 6 secret_task saboteur_de_l_ombre validated
+  - position: 4
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Hôte 11 pts
+    - 2. Joueur 6 14 pts
+    - 3. Joueur 5 5 pts (annulé)
+    - 4. Joueur 4 5 pts
+    tasks:
+    - Hôte fil_rouge le_pacifiste validated
+    - Hôte secret_task le_cadeau_empoisonne rejected
+    - Joueur 5 fil_rouge le_funambule validated
+    - Joueur 5 special_action le_grand_final validated
+    - Joueur 5 secret_task saboteur_de_l_ombre rejected
+    - Joueur 4 fil_rouge le_revenant validated
+    - Joueur 6 fil_rouge le_collectionneur validated contesté
+    - Joueur 6 secret_task sans_temoin validated
+disputes:
+- 'c1r3 le_roi_de_la_banane par Relève : rejected (0 pour, 0 contre)'
+- 'c1r3 le_faux_ami par Joueur 4 : validated (4 pour, 2 contre)'
+- 'c1r4 le_funambule par Joueur 9 : validated (0 pour, 0 contre)'
+- 'c1r4 le_collectionneur par Joueur 6 : rejected (2 pour, 4 contre)'
+- 'c1r4 le_pacifiste par Joueur 7 : rejected (0 pour, 0 contre)'
+- 'c2r1 saboteur_de_l_ombre par Joueur 5 : rejected (0 pour, 0 contre)'
+- 'c2r1 derapage_royal par Joueur 9 : validated (0 pour, 0 contre)'
+- 'c2r1 le_roi_de_la_banane par Hôte : rejected (3 pour, 3 contre)'
+- 'c2r2 le_pacifiste par Joueur 9 : validated (0 pour, 0 contre)'
+- 'c3r1 sans_temoin par Joueur 6 : validated (4 pour, 2 contre)'
+- 'c3r1 le_pacifiste par Joueur 4 : rejected (0 pour, 0 contre)'
+- 'c3r2 le_pacifiste par Joueur 4 : rejected (0 pour, 0 contre)'
+- 'c3r3 le_pacifiste par Joueur 4 : rejected (0 pour, 0 contre)'
+- 'c3r3 saboteur_de_l_ombre par Joueur 9 : rejected (0 pour, 0 contre)'
+- 'c3r4 triple_turbo par Relève : rejected (3 pour, 3 contre)'
+- 'c4r1 le_funambule par Joueur 8 : validated (0 pour, 0 contre)'
+- 'c4r1 sans_temoin par Joueur 9 : rejected (0 pour, 0 contre)'
+- 'c4r4 le_justicier par Joueur 3 : validated (0 pour, 0 contre)'
+- 'c4r4 le_revenant par Joueur 5 : validated (4 pour, 2 contre)'
+- 'c5r1 salut_de_l_empereur par Joueur 4 : rejected (0 pour, 0 contre)'
+- 'c5r4 triple_turbo par Joueur 7 : rejected (0 pour, 0 contre)'
+- 'c5r4 salut_de_l_empereur par Joueur 4 : rejected (2 pour, 4 contre)'
+- 'c6r1 le_justicier par Joueur 7 : rejected (0 pour, 0 contre)'
+- 'c6r3 derapage_royal par Joueur 7 : rejected (3 pour, 3 contre)'
+- 'c6r3 le_pacifiste par Joueur 5 : validated (0 pour, 0 contre)'
+- 'c6r3 saboteur_de_l_ombre par Relève : validated (0 pour, 0 contre)'
+- 'c7r3 le_collectionneur par Joueur 8 : validated (4 pour, 2 contre)'
+- 'c7r3 sans_temoin par Joueur 8 : rejected (0 pour, 0 contre)'
+- 'c7r4 le_grand_final par Hôte : validated (0 pour, 0 contre)'
+- 'c7r4 le_faux_ami par Relève : rejected (2 pour, 4 contre)'
+- 'c7r4 le_justicier par Joueur 6 : rejected (0 pour, 0 contre)'
+- 'c8r1 le_collectionneur par Joueur 3 : rejected (0 pour, 0 contre)'
+- 'c8r1 le_roi_de_la_banane par Hôte : rejected (0 pour, 0 contre)'
+- 'c8r2 le_justicier par Relève : rejected (2 pour, 4 contre)'
+- 'c9r3 sans_temoin par Relève : validated (3 pour, 3 contre)'
+- 'c9r3 le_collectionneur par Joueur 6 : rejected (0 pour, 0 contre)'
+- 'c9r4 le_collectionneur par Joueur 6 : validated (4 pour, 2 contre)'
+abandoned:
+- Joueur 2
+ranking:
+- 1. Joueur 5 185 pts (6 actions spéciales, 8 tâches secrètes)
+- 2. Joueur 6 162 pts (3 actions spéciales, 8 tâches secrètes)
+- 3. Hôte 134 pts (3 actions spéciales, 6 tâches secrètes)
+- 4. Joueur 4 126 pts (3 actions spéciales, 5 tâches secrètes)
+- 5. Joueur 3 125 pts (2 actions spéciales, 5 tâches secrètes)
+- 6. Joueur 8 121 pts (3 actions spéciales, 4 tâches secrètes)
+- 7. Joueur 9 119 pts (3 actions spéciales, 5 tâches secrètes)
+- 8. Joueur 7 101 pts (3 actions spéciales, 3 tâches secrètes)
+- 9. Relève 84 pts (3 actions spéciales, 2 tâches secrètes)
+- 10. Joueur 2 8 pts (0 actions spéciales, 0 tâches secrètes)

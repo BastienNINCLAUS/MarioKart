@@ -1,0 +1,105 @@
+---
+players: 4
+cups_count: 2
+rotate_game_master: true
+status: finished
+cups:
+- position: 1
+  game_master: Hôte
+  duos:
+  - Relève / Joueur 4 / Toadette / le_collectionneur / triple_turbo
+  - Joueur 3 / Hôte / Bébé Mario / le_pacifiste / planeur_parfait
+  races:
+  - position: 1
+    complication: pas_d_objets_offensifs
+    targets: []
+    results:
+    - 1. Joueur 3 6 pts
+    - 2. Joueur 2 7 pts
+    tasks:
+    - Joueur 2 secret_task le_faux_ami validated
+    - Joueur 3 special_action planeur_parfait validated
+  - position: 2
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Joueur 3 12 pts
+    - 2. Relève 0 pts (annulé)
+    tasks:
+    - Joueur 3 fil_rouge le_pacifiste validated
+    - Joueur 3 secret_task saboteur_de_l_ombre validated
+  - position: 3
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Joueur 3 4 pts
+    - 2. Relève 7 pts
+    tasks:
+    - Relève fil_rouge le_collectionneur validated
+  - position: 4
+    complication: les_amoureux
+    targets:
+    - Joueur 3
+    - Relève
+    results:
+    - 1. Relève 4 pts
+    - 2. Joueur 3 5 pts
+    tasks:
+    - Joueur 3 fil_rouge le_pacifiste validated
+- position: 2
+  game_master: Relève
+  duos:
+  - Hôte / Relève / Bowser / le_collectionneur / salut_de_l_empereur
+  - Joueur 4 / Joueur 3 / Inkling garçon / le_funambule / planeur_parfait
+  races:
+  - position: 1
+    complication: les_amoureux
+    targets:
+    - Hôte
+    - Joueur 4
+    results:
+    - 1. Hôte 6 pts
+    - 2. Joueur 4 5 pts
+    tasks:
+    - Hôte special_action salut_de_l_empereur validated
+    - Joueur 4 fil_rouge le_funambule validated
+  - position: 2
+    complication: dernier_couronne
+    targets: []
+    results:
+    - 1. Hôte 9 pts
+    - 2. Joueur 4 6 pts
+    tasks:
+    - Hôte fil_rouge le_collectionneur validated
+    - Hôte special_action salut_de_l_empereur validated
+    - Joueur 4 special_action planeur_parfait validated
+  - position: 3
+    complication: podium_inverse
+    targets: []
+    results:
+    - 1. Hôte 5 pts
+    - 2. Joueur 4 7 pts
+    tasks:
+    - Hôte fil_rouge le_collectionneur validated
+    - Joueur 4 fil_rouge le_funambule validated contesté
+    - Joueur 4 special_action planeur_parfait rejected
+  - position: 4
+    complication: objet_unique
+    targets: []
+    results:
+    - 1. Hôte 3 pts (annulé)
+    - 2. Joueur 4 10 pts
+    tasks:
+    - Hôte fil_rouge le_collectionneur validated
+    - Joueur 4 fil_rouge le_funambule validated
+    - Joueur 4 secret_task le_cadeau_empoisonne validated
+disputes:
+- 'c2r3 le_funambule par Joueur 3 : validated (1 pour, 0 contre)'
+abandoned:
+- Joueur 2
+ranking:
+- 1. Joueur 4 28 pts (1 actions spéciales, 1 tâches secrètes)
+- 2. Joueur 3 27 pts (1 actions spéciales, 1 tâches secrètes)
+- 3. Hôte 23 pts (2 actions spéciales, 0 tâches secrètes)
+- 4. Relève 11 pts (0 actions spéciales, 0 tâches secrètes)
+- 5. Joueur 2 7 pts (0 actions spéciales, 1 tâches secrètes)

@@ -1,0 +1,176 @@
+fr:
+  games:
+    new:
+      title: Mario Kart Party
+      create_heading: Créer une partie
+      join_heading: Rejoindre une partie
+      nickname: Pseudo
+      code: Code de la partie
+      rotate_game_master: Faire tourner le rôle de maître du jeu après chaque coupe
+      create_submit: Créer
+      join_submit: Rejoindre
+    show:
+      code_label: Code de la partie
+      players: "Joueurs (%{count}/%{max})"
+      host_badge: hôte
+      you_badge: vous
+      start: Lancer la partie
+      cups_count: Nombre de coupes
+      cups_hint: "Pour que chacun pilote autant de fois, choisis un multiple de %{cycle}."
+      waiting_for_host: En attente du lancement par l'hôte…
+      need_players: "Il faut entre %{min} et %{max} joueurs pour lancer la partie."
+      in_progress: La partie est lancée.
+      finished: La partie est terminée.
+    cup:
+      heading: "Coupe %{position}/%{total}"
+      game_master: Maître du jeu
+      game_master_also_judge: (juge aussi)
+      duos_heading: Duos de la coupe
+      adjust_heading: Ajuster les rôles
+      swap: Échanger les deux joueurs
+      start_cup: Lancer la coupe
+      characters_missing: Chaque juge doit choisir le personnage de son pilote avant de lancer la coupe.
+      waiting_for_cup_start: En attente du lancement de la coupe par le maître du jeu…
+    duos:
+      pilot: pilote
+      judge: juge
+      character: Personnage
+      no_character: Aucun
+      choose_character: Choisir
+      special_action_done: "Action spéciale réalisée : %{name}"
+    role:
+      abandoned: Tu as abandonné la partie.
+      game_master: Tu es le maître du jeu.
+      game_master_judge: "Tu es le maître du jeu et le juge de %{pilot}."
+      pilot: "Tu es pilote : ton juge est %{judge}."
+      judge: "Tu es juge : ton pilote est %{pilot}."
+      spectator: Tu n'as pas de rôle dans cette coupe.
+    race:
+      heading: "Course %{position}/%{total}"
+      status:
+        pending: avant le départ
+        running: en cours
+        finished: terminée
+      complication: Complication
+      targets: Duos ciblés
+      secret_complication: Une complication secrète est en jeu.
+      secret_complication_short: complication secrète
+      results_heading: Résultats des courses
+      my_duo: Mon duo
+      kinds:
+        fil_rouge: Tâche fil rouge
+        secret_task: Tâche secrète
+        special_action: Action spéciale
+      points:
+        one: "%{count} point"
+        many: "%{count} points"
+        other: "%{count} points"
+      tick: Marquer comme réussie
+      untick: Annuler
+      ticked: Cochée par le juge
+      start_race: Lancer la course
+      finish_heading: Résultat de la course
+      reject: Refuser
+      ticked_task: Tâche cochée
+      cancel_position_points: Annuler les points de position
+      finish: Valider la course
+      result: "Course %{position} (%{complication})"
+    disputes:
+      heading: Contestations
+      rejected_task: "Tâche refusée : %{name} (course %{race}, coupe %{cup})"
+      contest: Contester la décision
+      task: "%{name} — %{pilot} (course %{race}, coupe %{cup})"
+      status:
+        open: En attente de la décision du maître du jeu.
+        voting: "Vote en cours (%{count}/%{total} voix)."
+        tied: "Égalité : le maître du jeu tranche."
+        resolved:
+          validated: Tâche validée après contestation.
+          rejected: Refus maintenu.
+      vote_approve: Valider la tâche
+      vote_reject: Maintenir le refus
+      decide_approve: Valider la tâche
+      decide_reject: Maintenir le refus
+      start_vote: Lancer un vote
+      close_vote: Clôre le vote
+    players_admin:
+      heading: Joueurs
+      manage: Gérer les joueurs
+      open_seat: "%{name} a abandonné. Une nouvelle personne peut rejoindre avec le code %{code} pour prendre sa place."
+      reinstate: "%{name} est de retour"
+      abandon: "%{name} abandonne"
+      confirm: "Marquer %{name} comme ayant abandonné ?"
+    ranking:
+      abandoned: abandon
+      heading: Classement
+      points:
+        one: "%{count} point"
+        many: "%{count} points"
+        other: "%{count} points"
+    start_errors:
+      not_host: Seul l'hôte peut lancer la partie.
+      not_lobby: La partie est déjà lancée.
+      wrong_player_count: Le nombre de joueurs doit être compris entre 4 et 9.
+      invalid_cups_count: "Le nombre de coupes doit être compris entre %{min} et %{max}."
+    errors:
+      not_member: Rejoins d'abord la partie avec ton pseudo.
+  joins:
+    create:
+      unknown_code: Code de partie inconnu.
+  flow_errors:
+    not_game_master: Seul le maître du jeu peut faire cette action.
+    not_setup: La coupe a déjà commencé.
+    characters_missing: Chaque juge doit d'abord choisir le personnage de son pilote.
+    all_races_created: Toutes les courses de la coupe sont déjà créées.
+    not_pending: La course a déjà commencé.
+    not_running: La course n'est pas en cours.
+    invalid_positions: Chaque duo doit avoir une place différente.
+    cancellation_not_allowed: L'annulation des points ne s'applique qu'aux complications manuelles.
+    not_judge: Seul le juge du duo peut cocher ses tâches.
+    race_not_running: Les tâches ne peuvent être cochées que pendant la course.
+    not_duo_member: Seul un membre du duo peut contester.
+    not_contestable: Seule une tâche cochée puis refusée peut être contestée, une seule fois.
+    not_authority: Seul le maître du jeu ou l'hôte peut faire cette action.
+    not_open: La contestation a déjà été traitée.
+    no_voters: Personne ne peut voter sur cette contestation.
+    not_voting: Aucun vote n'est en cours.
+    not_voter: Tu ne peux pas voter sur cette contestation.
+    already_voted: Tu as déjà voté.
+    not_decidable: Cette contestation ne peut pas être tranchée maintenant.
+    not_in_progress: La partie n'est pas en cours.
+    cannot_abandon_host: L'hôte ne peut pas abandonner.
+    already_abandoned: Ce joueur a déjà abandonné.
+    not_abandoned: Ce joueur n'a pas abandonné.
+    seat_taken: Quelqu'un a déjà pris la place de ce joueur.
+    no_open_seat: Aucune place n'est libre.
+  cups:
+    errors:
+      not_game_master: Seul le maître du jeu peut faire cette action.
+    swap_errors:
+      not_setup: La coupe a déjà commencé.
+      same_player: Choisis deux joueurs différents.
+      not_in_duo: Un des joueurs n'a pas de place dans un duo.
+      game_master_cannot_pilot: Le maître du jeu ne peut pas être pilote.
+  duos:
+    errors:
+      not_judge: Seul le juge du duo peut choisir le personnage.
+      cup_started: La coupe a déjà commencé.
+  activerecord:
+    attributes:
+      player:
+        nickname: Le pseudo
+      duo:
+        character: Le personnage
+    errors:
+      models:
+        duo:
+          attributes:
+            base:
+              same_player: Un duo doit avoir deux joueurs différents.
+              game_master_cannot_pilot: Le maître du jeu ne peut pas être pilote.
+              foreign_player: Les joueurs d'un duo doivent appartenir à la partie.
+        player:
+          attributes:
+            base:
+              game_started: La partie a déjà commencé.
+              game_full: La partie est complète.

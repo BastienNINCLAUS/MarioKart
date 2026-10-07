@@ -1,0 +1,61 @@
+<%= turbo_stream_from @game %>
+
+<div class="space-y-6" data-controller="live-refresh">
+  <% if @game.lobby? %>
+    <header class="text-center">
+      <p class="text-sm text-gray-600"><%= t(".code_label") %></p>
+      <p id="game_code" class="text-5xl font-bold tracking-widest"><%= @game.code %></p>
+    </header>
+
+    <section class="space-y-3">
+      <h2 class="text-xl font-semibold"><%= t(".players", count: @game.players.count, max: Game::MAX_PLAYERS) %></h2>
+      <ul id="players" class="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+        <% @game.players.order(:id).each do |player| %>
+          <li class="flex min-h-12 items-center justify-between px-3 py-2">
+            <span><%= player.nickname %></span>
+            <span class="text-xs text-gray-500">
+              <%= t(".host_badge") if player.host? %>
+              <%= t(".you_badge") if player == current_player %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <% if current_player.host? %>
+      <% if @game.players.count.between?(Game::MIN_PLAYERS, Game::MAX_PLAYERS) %>
+        <% calculator = CupCountCalculator.new(@game.players.count) %>
+        <%= form_with url: start_game_path(@game), class: "card space-y-3" do |form| %>
+          <%= form.label :cups_count, t(".cups_count"), class: "block text-sm font-medium" %>
+          <%= form.number_field :cups_count, value: calculator.default, min: CupCountCalculator::DEFAULT, max: CupCountCalculator::MAX, inputmode: "numeric", class: "input" %>
+          <p class="text-sm text-gray-600"><%= t(".cups_hint", cycle: calculator.full_cycle) %></p>
+          <%= form.submit t(".start"), class: "btn btn-success btn-block" %>
+        <% end %>
+      <% else %>
+        <p class="text-center text-sm text-gray-600"><%= t(".need_players", min: Game::MIN_PLAYERS, max: Game::MAX_PLAYERS) %></p>
+      <% end %>
+    <% else %>
+      <p class="text-center text-gray-600"><%= t(".waiting_for_host") %></p>
+    <% end %>
+  <% else %>
+    <div class="sticky top-0 z-10 -mx-4 flex items-center justify-between border-b border-gray-200 bg-white/95 px-4 py-2 backdrop-blur">
+      <span class="text-sm text-gray-600"><%= t(".code_label") %> <strong id="game_code" class="font-mono tracking-widest text-gray-900"><%= @game.code %></strong></span>
+      <span class="text-sm font-medium"><%= current_player.nickname %></span>
+    </div>
+
+    <% if @game.in_progress? %>
+      <p class="text-center text-sm text-gray-600"><%= t(".in_progress") %></p>
+      <%= render "games/role", game: @game %>
+      <% if @game.current_cup %>
+        <%= render "games/cup", game: @game, cup: @game.current_cup %>
+      <% end %>
+      <%= render "games/ranking", game: @game %>
+      <%= render "games/disputes", game: @game %>
+      <%= render "games/players_admin", game: @game %>
+    <% else %>
+      <p class="text-center text-lg font-semibold"><%= t(".finished") %></p>
+      <%= render "games/ranking", game: @game %>
+      <%= render "games/disputes", game: @game %>
+    <% end %>
+  <% end %>
+</div>

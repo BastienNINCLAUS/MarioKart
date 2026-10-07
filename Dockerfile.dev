@@ -1,0 +1,25 @@
+# syntax=docker/dockerfile:1
+# Image de développement et de test (le Dockerfile racine reste dédié à la production).
+ARG RUBY_VERSION=3.4.11
+FROM docker.io/library/ruby:$RUBY_VERSION-slim
+
+WORKDIR /rails
+
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+      build-essential git curl libpq-dev libvips libyaml-dev pkg-config postgresql-client \
+      chromium chromium-driver && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+ENV BUNDLE_PATH="/usr/local/bundle" \
+    RAILS_ENV="development" \
+    CHROME_BIN="/usr/bin/chromium"
+
+COPY Gemfile Gemfile.lock ./
+COPY vendor/* ./vendor/
+RUN bundle install
+
+COPY . .
+
+EXPOSE 3000
+CMD ["bin/dev"]

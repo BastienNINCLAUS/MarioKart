@@ -1,0 +1,28 @@
+<% cup = game.current_cup %>
+<% authority = current_player.id == game.host_id || current_player == cup&.game_master %>
+<% open_seats = game.open_seats.to_a %>
+<% if open_seats.any? || authority %>
+  <section id="players_admin" class="space-y-3">
+    <h2 class="text-xl font-semibold"><%= t(".heading") %></h2>
+
+    <% open_seats.each do |player| %>
+      <div class="open-seat rounded-lg bg-yellow-50 p-3">
+        <p><%= t(".open_seat", name: player.nickname, code: game.code) %></p>
+        <% if authority %>
+          <%= button_to t(".reinstate", name: player.nickname), reinstate_game_player_path(game, player), class: "btn btn-neutral btn-block mt-2" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if authority %>
+      <details class="card">
+        <summary class="min-h-8 cursor-pointer font-medium"><%= t(".manage") %></summary>
+        <div class="space-y-2">
+          <% game.players.connected.where.not(id: game.host_id).order(:id).each do |player| %>
+            <%= button_to t(".abandon", name: player.nickname), abandon_game_player_path(game, player), data: { turbo_confirm: t(".confirm", name: player.nickname) }, class: "btn btn-outline-danger btn-block" %>
+          <% end %>
+        </div>
+      </details>
+    <% end %>
+  </section>
+<% end %>

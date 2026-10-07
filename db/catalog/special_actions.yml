@@ -1,0 +1,27 @@
+kind: special_action
+items:
+  - key: derapage_royal
+    name: Dérapage royal
+    description: Enchaîner un dérapage sans interruption sur toute une courbe longue.
+    points: 2
+    visibility: secret_until_done
+  - key: triple_turbo
+    name: Triple turbo
+    description: Enchaîner 3 mini-turbos de suite.
+    points: 2
+    visibility: secret_until_done
+  - key: salut_de_l_empereur
+    name: Salut de l'empereur
+    description: Klaxonner en doublant un adversaire.
+    points: 2
+    visibility: secret_until_done
+  - key: planeur_parfait
+    name: Planeur parfait
+    description: Réussir 3 sauts avec figures (« tricks ») d'affilée.
+    points: 2
+    visibility: secret_until_done
+  - key: le_grand_final
+    name: Le grand final
+    description: Franchir la ligne d'arrivée avec un objet en réserve.
+    points: 2
+    visibility: secret_until_done

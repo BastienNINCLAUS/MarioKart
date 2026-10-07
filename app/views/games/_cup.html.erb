@@ -1,0 +1,39 @@
+<section id="cup" class="space-y-4">
+  <h2 class="text-xl font-semibold"><%= t(".heading", position: cup.position, total: game.cups_count) %></h2>
+
+  <p>
+    <span class="font-medium"><%= t(".game_master") %> :</span>
+    <span id="game_master"><%= cup.game_master.nickname %></span>
+    <%= t(".game_master_also_judge") if cup.game_master_is_judge? %>
+  </p>
+
+  <% if cup.setup? %>
+    <%= render "games/duos", game: game, cup: cup %>
+
+    <% if current_player == cup.game_master %>
+      <% members = cup.duos.flat_map { |duo| [ duo.pilot, duo.judge ] } %>
+      <%= form_with url: swap_game_cup_path(game, cup), method: :patch, class: "card" do |form| %>
+        <h3 class="font-medium"><%= t(".adjust_heading") %></h3>
+        <div class="flex gap-2">
+          <%= form.select :player_id, members.map { |player| [ player.nickname, player.id ] }, {}, class: "input min-w-0 flex-1" %>
+          <%= form.select :other_id, members.map { |player| [ player.nickname, player.id ] }, {}, class: "input min-w-0 flex-1" %>
+        </div>
+        <%= form.submit t(".swap"), class: "btn btn-neutral btn-block" %>
+      <% end %>
+      <%= button_to t(".start_cup"), start_game_cup_path(game, cup), disabled: !cup.ready?, class: "btn btn-success btn-block" %>
+      <% unless cup.ready? %>
+        <p class="text-center text-sm text-gray-600"><%= t(".characters_missing") %></p>
+      <% end %>
+    <% else %>
+      <p class="text-center text-gray-600"><%= t(".waiting_for_cup_start") %></p>
+    <% end %>
+  <% else %>
+    <% if cup.in_progress? && cup.current_race %>
+      <%= render "games/race", game: game, cup: cup, race: cup.current_race %>
+    <% end %>
+    <details class="card">
+      <summary class="min-h-8 cursor-pointer font-medium"><%= t(".duos_heading") %></summary>
+      <%= render "games/duos", game: game, cup: cup %>
+    </details>
+  <% end %>
+</section>

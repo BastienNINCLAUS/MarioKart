@@ -1,0 +1,20 @@
+<% cup = game.current_cup %>
+<% if current_player.abandoned? %>
+  <p id="role" class="rounded-lg bg-gray-100 p-3 text-center text-gray-700"><%= t(".abandoned") %></p>
+<% elsif cup %>
+  <% roles = cup.roles_of(current_player) %>
+  <% duo = cup.duo_for(current_player) %>
+  <p id="role" class="rounded-lg bg-indigo-50 p-3 text-center font-medium text-indigo-900">
+    <% if roles.include?(:game_master) && duo %>
+      <%= t(".game_master_judge", pilot: duo.pilot.nickname) %>
+    <% elsif roles.include?(:game_master) %>
+      <%= t(".game_master") %>
+    <% elsif roles.include?(:pilot) %>
+      <%= t(".pilot", judge: duo.judge.nickname) %>
+    <% elsif roles.include?(:judge) %>
+      <%= t(".judge", pilot: duo.pilot.nickname) %>
+    <% else %>
+      <%= t(".spectator") %>
+    <% end %>
+  </p>
+<% end %>

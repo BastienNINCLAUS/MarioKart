@@ -1,0 +1,27 @@
+kind: fil_rouge
+items:
+  - key: le_collectionneur
+    name: Le collectionneur
+    description: Terminer la course avec au moins 10 pièces.
+    points: 3
+    visibility: secret_duo
+  - key: le_roi_de_la_banane
+    name: Le roi de la banane
+    description: Lancer plus de 12 bananes pendant la course.
+    points: 3
+    visibility: secret_duo
+  - key: le_funambule
+    name: Le funambule
+    description: Ne tomber hors piste à aucun moment de la course.
+    points: 3
+    visibility: secret_duo
+  - key: le_pacifiste
+    name: Le pacifiste
+    description: Ne lancer aucun objet offensif sur un autre pilote pendant la course.
+    points: 3
+    visibility: secret_duo
+  - key: le_revenant
+    name: Le revenant
+    description: Gagner au moins 3 places pendant le dernier tour.
+    points: 3
+    visibility: secret_duo

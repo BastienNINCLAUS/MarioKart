@@ -1,0 +1,85 @@
+<% master = current_player == cup.game_master %>
+<% my_duo = cup.duo_for(current_player) %>
+<section id="race" class="space-y-4">
+  <h3 class="text-lg font-semibold"><%= t(".heading", position: race.position, total: Cup::RACES_COUNT) %> &middot; <span class="badge"><%= t(".status.#{race.status}") %></span></h3>
+
+  <div id="complication" class="rounded-lg bg-yellow-50 p-3">
+    <% if race.complication_visible_to?(current_player) %>
+      <p class="font-medium"><%= t(".complication") %> : <%= race.complication_item.name %></p>
+      <p class="text-sm"><%= race.complication_item.description %></p>
+      <% if race.targeted_duos.any? %>
+        <p class="text-sm"><%= t(".targets") %> : <%= race.targeted_duos.map { |duo| "#{duo.pilot.nickname} / #{duo.judge.nickname}" }.to_sentence %></p>
+      <% end %>
+    <% else %>
+      <p><%= t(".secret_complication") %></p>
+    <% end %>
+  </div>
+
+  <% if my_duo %>
+    <div id="my_duo" class="card">
+      <h4 class="font-medium"><%= t(".my_duo") %></h4>
+      <ul class="space-y-3">
+        <% race.checks.select { |check| check.duo_id == my_duo.id }.each do |check| %>
+          <li class="check space-y-1" data-kind="<%= check.kind %>">
+            <p><span class="font-medium"><%= t(".kinds.#{check.kind}") %> :</span> <%= check.catalog_item.name %> <span class="badge"><%= t(".points", count: check.points) %></span></p>
+            <p class="text-sm text-gray-600"><%= check.catalog_item.description %></p>
+            <% if current_player == my_duo.judge && race.running? %>
+              <%= button_to (check.achieved? ? t(".untick") : t(".tick")), game_check_path(game, check), method: :patch, params: { achieved: !check.achieved? }, class: "btn btn-block #{check.achieved? ? 'btn-success' : 'btn-neutral'}" %>
+            <% elsif check.achieved? %>
+              <p class="text-sm text-green-700"><%= t(".ticked") %></p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if master && race.pending? %>
+    <%= button_to t(".start_race"), start_game_race_path(game, race), class: "btn btn-success btn-block" %>
+  <% elsif master && race.running? %>
+    <%= form_with url: finish_game_race_path(game, race), class: "card space-y-3" do |form| %>
+      <h4 class="font-medium"><%= t(".finish_heading") %></h4>
+      <% cup.duos.each_with_index do |duo, index| %>
+        <div class="space-y-1">
+          <label class="flex items-center justify-between gap-2">
+            <span><%= duo.pilot.nickname %> (<%= duo.character %>)</span>
+            <%= select_tag "positions[#{duo.id}]", options_for_select(1..cup.duos.size, index + 1), class: "input w-24" %>
+          </label>
+          <% ticked = race.checks.select { |check| check.duo_id == duo.id && check.achieved? } %>
+          <% ticked.each do |check| %>
+            <label class="flex min-h-10 items-center gap-2 text-sm">
+              <%= check_box_tag "rejected[]", check.id, false, id: "rejected_#{check.id}", class: "size-5" %>
+              <span><%= t(".reject") %> : <%= check.visible_to?(current_player) ? check.catalog_item.name : t(".ticked_task") %></span>
+            </label>
+          <% end %>
+          <% if race.complication_item.params["calculation"] == "manual" %>
+            <label class="flex min-h-10 items-center gap-2 text-sm">
+              <%= check_box_tag "cancelled[]", duo.id, false, id: "cancelled_#{duo.id}", class: "size-5" %>
+              <span><%= t(".cancel_position_points") %></span>
+            </label>
+          <% end %>
+        </div>
+      <% end %>
+      <%= form.submit t(".finish"), class: "btn btn-primary btn-block" %>
+    <% end %>
+  <% end %>
+
+  <% finished_races = cup.races.select(&:finished?) %>
+  <% if finished_races.any? %>
+    <details open class="card">
+      <summary class="min-h-8 cursor-pointer font-medium"><%= t(".results_heading") %></summary>
+      <% finished_races.each do |finished| %>
+        <div class="race-result text-sm">
+          <p class="font-medium"><%= t(".result", position: finished.position, complication: finished.complication_item.visibility == "public" ? finished.complication_item.name : t(".secret_complication_short")) %></p>
+          <ol>
+            <% finished.race_results.sort_by(&:position).each do |result| %>
+              <% pilot = result.pilot || result.duo.pilot %>
+              <% points = finished.score_entries.select { |entry| entry.player_id == pilot.id }.sum(&:points) %>
+              <li><%= result.position %>. <%= pilot.nickname %> &mdash; <%= t(".points", count: points) %></li>
+            <% end %>
+          </ol>
+        </div>
+      <% end %>
+    </details>
+  <% end %>
+</section>

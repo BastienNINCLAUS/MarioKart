@@ -1,0 +1,12 @@
+<% names = game.players.index_by(&:id) %>
+<section id="ranking" class="space-y-2">
+  <h2 class="text-xl font-semibold"><%= t(".heading") %></h2>
+  <ol class="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+    <% game.ranking.each do |entry| %>
+      <li class="flex min-h-12 items-center justify-between px-3 py-2 <%= 'bg-yellow-50 font-semibold' if entry.rank == 1 && entry.points.positive? %>">
+        <span><%= entry.rank %>. <%= names[entry.player].nickname %><%= " (#{t('.abandoned')})" if names[entry.player].abandoned? %></span>
+        <span class="font-medium"><%= t(".points", count: entry.points) %></span>
+      </li>
+    <% end %>
+  </ol>
+</section>

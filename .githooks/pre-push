@@ -1,0 +1,3 @@
+#!/bin/sh
+# Bloque le push si bin/ci échoue (lint, sécurité, tests unitaires et système).
+exec docker compose run --rm -T web bin/ci

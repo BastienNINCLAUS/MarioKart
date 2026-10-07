@@ -1,0 +1,25 @@
+<ul id="duos" class="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+  <% taken = cup.duos.filter_map(&:character) %>
+  <% cup.duos.each do |duo| %>
+    <li class="space-y-2 p-3">
+      <p>
+        <span class="font-medium"><%= duo.pilot.nickname %></span>
+        <span class="text-gray-500">(<%= t(".pilot") %>)</span>
+        &mdash;
+        <span class="font-medium"><%= duo.judge.nickname %></span>
+        <span class="text-gray-500">(<%= t(".judge") %>)</span>
+      </p>
+      <% if cup.setup? && current_player == duo.judge %>
+        <%= form_with url: game_duo_path(game, duo), method: :patch, class: "flex gap-2" do |form| %>
+          <%= form.select :character, options_for_select(Characters::ALL, selected: duo.character, disabled: taken - [ duo.character ]), { include_blank: t(".no_character") }, class: "input min-w-0 flex-1" %>
+          <%= form.submit t(".choose_character"), class: "btn btn-info" %>
+        <% end %>
+      <% else %>
+        <p class="text-sm"><%= t(".character") %> : <%= duo.character || t(".no_character") %></p>
+      <% end %>
+      <% if duo.special_action_public? %>
+        <p class="special-action-public text-sm text-green-700"><%= t(".special_action_done", name: duo.special_action_item.name) %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

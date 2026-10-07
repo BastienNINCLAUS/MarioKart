@@ -1,0 +1,33 @@
+# La clé de chaque complication désigne la stratégie de calcul (ComplicationResolver).
+kind: complication
+items:
+  - key: les_amoureux
+    name: Les amoureux
+    description: Si les 2 duos tirés ont plus d'une place d'écart au classement de la course, aucun des deux ne gagne de points.
+    visibility: public
+    params: { type: targeted, targets: 2, calculation: auto }
+  - key: les_rivaux
+    name: Les rivaux
+    description: Le duo tiré qui finit devant l'autre gagne en plus les points de position de l'autre.
+    visibility: secret
+    params: { type: targeted, targets: 2, calculation: auto }
+  - key: dernier_couronne
+    name: Dernier couronné
+    description: Le dernier de la course gagne le double de points de position.
+    visibility: public
+    params: { type: global, calculation: auto }
+  - key: podium_inverse
+    name: Podium inversé
+    description: "Les points de position sont inversés : le dernier reçoit ceux du premier, et ainsi de suite."
+    visibility: public
+    params: { type: global, calculation: auto }
+  - key: pas_d_objets_offensifs
+    name: Pas d'objets offensifs
+    description: Les objets offensifs sont interdits ; tout lancer sur un autre pilote annule les points de position du pilote fautif.
+    visibility: public
+    params: { type: constraint, calculation: manual }
+  - key: objet_unique
+    name: Objet unique
+    description: Chaque pilote n'utilise qu'un seul objet pendant toute la course ; tout objet en plus annule ses points de position.
+    visibility: public
+    params: { type: constraint, calculation: manual }

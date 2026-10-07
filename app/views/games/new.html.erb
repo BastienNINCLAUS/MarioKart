@@ -1,0 +1,27 @@
+<div class="space-y-8">
+  <h1 class="text-center text-3xl font-bold"><%= t(".title") %></h1>
+
+  <section class="card space-y-3">
+    <h2 class="text-xl font-semibold"><%= t(".create_heading") %></h2>
+    <%= form_with url: games_path, class: "space-y-3" do |form| %>
+      <%= form.label :nickname, t(".nickname"), class: "block text-sm font-medium", for: "create_nickname" %>
+      <%= form.text_field :nickname, id: "create_nickname", maxlength: Player::NICKNAME_MAX_LENGTH, required: true, autocomplete: "nickname", class: "input" %>
+      <label class="flex items-start gap-2 text-sm">
+        <%= form.check_box :rotate_game_master, { checked: true, id: "rotate_game_master", class: "mt-1 size-5" }, "1", "0" %>
+        <span><%= t(".rotate_game_master") %></span>
+      </label>
+      <%= form.submit t(".create_submit"), class: "btn btn-primary btn-block" %>
+    <% end %>
+  </section>
+
+  <section class="card space-y-3">
+    <h2 class="text-xl font-semibold"><%= t(".join_heading") %></h2>
+    <%= form_with url: joins_path, class: "space-y-3" do |form| %>
+      <%= form.label :code, t(".code"), class: "block text-sm font-medium", for: "join_code" %>
+      <%= form.text_field :code, id: "join_code", value: params[:code], maxlength: Game::CODE_LENGTH, required: true, autocapitalize: "characters", autocomplete: "off", class: "input uppercase tracking-widest" %>
+      <%= form.label :nickname, t(".nickname"), class: "block text-sm font-medium", for: "join_nickname" %>
+      <%= form.text_field :nickname, id: "join_nickname", maxlength: Player::NICKNAME_MAX_LENGTH, required: true, autocomplete: "nickname", class: "input" %>
+      <%= form.submit t(".join_submit"), class: "btn btn-info btn-block" %>
+    <% end %>
+  </section>
+</div>
